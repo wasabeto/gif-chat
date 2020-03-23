@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ChatModel } from "./chat.model";
+import { GifService } from "../gif.service";
 
 @Component({
   selector: "app-chat",
@@ -9,7 +10,7 @@ import { ChatModel } from "./chat.model";
 export class ChatComponent implements OnInit {
   text: string;
   messageList: ChatModel[];
-  constructor() {
+  constructor(private gifService: GifService) {
     this.messageList = [];
     this.text = "";
   }
@@ -20,6 +21,7 @@ export class ChatComponent implements OnInit {
       content: "This is a premade, hardcoded received me Text",
       own: false
     });
+    this.getAllGif();
   }
 
   postTextChat(): void {
@@ -31,5 +33,11 @@ export class ChatComponent implements OnInit {
       });
       this.text = "";
     }
+  }
+
+  getAllGif(): void {
+    this.gifService.getAll().subscribe(res => {
+      console.log(res);
+    })
   }
 }
