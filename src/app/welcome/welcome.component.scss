@@ -1,0 +1,45 @@
+.content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .login-form-container {
+    max-width: 280px;
+    position: relative;
+    background: linear-gradient(to right, purple, #F44336);
+    padding: 3px;
+    border-radius: 4px;
+  }
+  
+  .login-form {
+    padding: 2rem;
+    background-color: black;
+    border-radius: 4px;
+  
+    h1 {
+        padding-bottom: 40px;
+    }
+  
+    .welcome-image {
+      width: 200px;
+      border-radius: 100px;
+    }
+  
+    .action-container {
+      margin: 40px 0 0;
+  
+      .login-btn {
+        height: 34px;
+        width: 200px;
+        border: 1px solid deeppink;
+        background-color: transparent;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+  
