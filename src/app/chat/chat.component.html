@@ -1,9 +1,8 @@
 <div class="message-container">
   <div *ngFor="let msg of messageList" class="chat-message" [ngClass]="{own: msg.own, yours: !msg.own}">
     <div class="chat-text-message">
-        <span class="message">
-            {{ msg.content }}
-        </span>
+        <span class="message" *ngIf="!msg.isGif">{{ msg.content }}</span>
+        <img class="message" *ngIf="msg.isGif" [src]="msg.content" [alt]="msg.title" />
     </div>
   </div>
 </div>
@@ -11,7 +10,7 @@
 <div class="form-container">
   <div class="chat-form">
     <div class="add-gif-container chat-col">
-      <button class="btn-add-gif">GIF</button>
+      <button class="btn-add-gif" (click)="postGifChatOnDialog()">GIF</button>
     </div>
     <div class="chat-text-container chat-col-input">
       <textarea class="chat-text" rows="1" [(ngModel)]="text"></textarea>

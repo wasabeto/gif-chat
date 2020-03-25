@@ -14,6 +14,12 @@
         padding: 10px;
         border-radius: 20px;
       }
+
+      img.message {
+        width: 200px;
+        height: 200px;
+        border-radius: 30px;
+      }
     }
   }
 
@@ -21,15 +27,14 @@
     text-align: right;
 
     span.message {
-        background-color: deeppink;
-      }
+      background-color: deeppink;
+    }
   }
 
   .chat-message.yours {
-
     span.message {
-        background-color: blue;
-      }
+      background-color: blue;
+    }
   }
 }
 

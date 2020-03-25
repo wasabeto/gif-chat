@@ -1,6 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { ChatModel } from "./chat.model";
 import { GifService } from "../gif.service";
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
+import { GifFinderComponent } from "../gif-finder/gif-finder.component";
 
 @Component({
   selector: "app-chat",
@@ -10,7 +16,7 @@ import { GifService } from "../gif.service";
 export class ChatComponent implements OnInit {
   text: string;
   messageList: ChatModel[];
-  constructor(private gifService: GifService) {
+  constructor(public gifService: GifService, private dialog: MatDialog) {
     this.messageList = [];
     this.text = "";
   }
@@ -19,9 +25,9 @@ export class ChatComponent implements OnInit {
     this.messageList.push({
       id: 1,
       content: "This is a premade, hardcoded received me Text",
-      own: false
+      own: false,
+      isGif: false
     });
-    this.getAllGif();
   }
 
   postTextChat(): void {
@@ -29,15 +35,27 @@ export class ChatComponent implements OnInit {
       this.messageList.push({
         id: this.messageList.length + 1,
         content: this.text,
-        own: true
+        own: true,
+        isGif: false
       });
       this.text = "";
     }
   }
 
-  getAllGif(): void {
-    this.gifService.getAll().subscribe(res => {
-      console.log(res);
-    })
+  postGifChatOnDialog(): void {
+    const dialogRef = this.dialog.open(GifFinderComponent, {
+      width: '80%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
+      console.log(result);
+      this.messageList.push({
+        id: this.messageList.length + 1,
+        content: result.image,
+        own: true,
+        isGif: true
+      })
+    });
   }
 }
