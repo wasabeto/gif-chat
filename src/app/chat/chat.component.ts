@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ChatModel } from "./chat.model";
-import { GifService } from "../gif.service";
 import {
   MatDialog,
   MatDialogRef,
@@ -16,7 +15,7 @@ import { GifFinderComponent } from "../gif-finder/gif-finder.component";
 export class ChatComponent implements OnInit {
   text: string;
   messageList: ChatModel[];
-  constructor(public gifService: GifService, private dialog: MatDialog) {
+  constructor(private dialog: MatDialog) {
     this.messageList = [];
     this.text = "";
   }
