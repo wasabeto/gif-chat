@@ -14,12 +14,13 @@
 <div class="form-container">
   <div class="chat-form">
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
-      <button mat-fab (click)="postGifChatOnDialog()" color="primary">
+      <button mat-fab (click)="postGifChatOnDialog()" color="primary" gdAlignColumns="center">
         <mat-icon aria-hidden="false" aria-label="Send a gif">gif</mat-icon>
       </button>
       <mat-form-field class="chat-input-text" fxFlex="80%">
         <textarea
           matInput
+          rows="3"
           placeholder="Lave a comment here..."
           [(ngModel)]="text"
         ></textarea>
