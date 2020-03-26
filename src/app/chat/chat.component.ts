@@ -44,7 +44,7 @@ export class ChatComponent implements OnInit {
 
   postGifChatOnDialog(): void {
     const dialogRef = this.dialog.open(GifFinderComponent, {
-      width: '80%'
+      width: '60%'
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -17,8 +17,8 @@
 
   <div *ngIf="!loading">
     <mat-grid-list cols="4" rowHeight="2:2">
-      <mat-grid-tile *ngFor="let gif of gifList" (click)="selectGif(gif)">
-        <img class="loading" [src]="gif.image" [alt]="gif.title" />
+      <mat-grid-tile *ngFor="let gif of gifList">
+        <img class="loading" [src]="gif.image" [alt]="gif.title"  (click)="selectGif(gif)" />
       </mat-grid-tile>
     </mat-grid-list>
   </div>
